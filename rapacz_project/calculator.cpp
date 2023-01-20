@@ -5,8 +5,28 @@
 #include <sstream>
 #include <cmath>
 #include <cstdlib>
+#include <string>
 
 using namespace std;
+
+void Calculator::choose_system()
+{
+    string choose;
+    cout << "Wybierz system, w ktorym chcesz pracowac:" << endl;
+    cout << "---------------------------------------" << endl;
+    cout << "dec - decymalny" << endl;
+    cout << "oct - osemkowy" << endl;
+    cout << "hex - szesnastkowy" << endl;
+    cout << "bin - binarny" << endl;
+    cout << "Wybor: ";
+    cin >> choose;
+    p_choose_system = choose;
+}
+
+string Calculator::get_system()
+{
+    return p_choose_system;
+}
 
 void Calculator::hello()
 {
@@ -47,6 +67,60 @@ void Calculator::setVar2()
     }
 }
 
+string Calculator::setVar1_bin()
+{
+    string var;
+    cout << "Podaj pierwsza liczbe binarna: ";
+    cin >> var;
+    p_var1_bin = var;
+    return p_var1_bin;
+}
+
+string Calculator::setVar2_bin()
+{
+    string var;
+    cout << "Podaj liczbe binarna: ";
+    cin >> var;
+    p_var2_bin = var;
+    return p_var2_bin;
+}
+
+string Calculator::setVar1_oct()
+{
+    string var;
+    cout << "Podaj pierwsza liczbe w systemie osemkowym: ";
+    cin >> var;
+    p_var1_oct = var;
+    return p_var1_oct;
+}
+
+string Calculator::setVar2_oct()
+{
+    string var;
+    cout << "Podaj pierwsza liczbe w systemie osemkowym: ";
+    cin >> var;
+    p_var2_oct = var;
+    return p_var2_oct;
+}
+
+string Calculator::setVar1_hex()
+{
+    string var;
+    cout << "Podaj pierwsza liczbe w systemie szesnastkowym: ";
+    cin >> var;
+    p_var1_hex = var;
+    return p_var1_hex;
+}
+
+string Calculator::setVar2_hex()
+{
+    string var;
+    cout << "Podaj pierwsza liczbe w systemie szesnastkowym: ";
+    cin >> var;
+    p_var2_hex = var;
+    return p_var2_hex;
+}
+
 void Calculator::setOperation()
 {
     char operation;
@@ -65,6 +139,21 @@ void Calculator::calculate()
 {
     stringstream resultStream;
     resultStream << fixed << setprecision(2);
+    if (p_choose_system == "bin")
+    {
+        p_var1 = bin2dec(p_var1_bin);
+        p_var2 = bin2dec(p_var2_bin);
+    }
+    else if (p_choose_system == "oct")
+    {
+        p_var1 = oct2dec(p_var1_oct);
+        p_var2 = oct2dec(p_var2_oct);
+    }
+    else if (p_choose_system == "hex")
+    {
+        p_var1 = hex2dec(p_var1_hex);
+        p_var2 = hex2dec(p_var2_hex);
+    }
 
     switch (p_operation)
     {
@@ -140,4 +229,22 @@ string Calculator::toOct()
     resultStream << "\t\t\t0" << oct << resultInt;
 
     return resultStream.str();
+}
+
+int Calculator::bin2dec(string bin)
+{
+    int dec_bin = strtol(bin.c_str(), NULL, 2);
+    return dec_bin;
+}
+
+int Calculator::oct2dec(string octal)
+{
+    int dec_octal = strtol(octal.c_str(), NULL, 8);
+    return dec_octal;
+}
+
+int Calculator::hex2dec(string hexal)
+{
+    int dec_hexal = strtol(hexal.c_str(), NULL, 16);
+    return dec_hexal;
 }
