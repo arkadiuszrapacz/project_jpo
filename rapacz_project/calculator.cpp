@@ -25,24 +25,26 @@ void Calculator::hello()
     cout << endl;
 }
 
-double Calculator::setVar1()
+void Calculator::setVar1()
 {
-    double var;
     cout << "Podaj pierwsza wartosc: ";
-    cin >> var;
-    cout << endl;
-    p_var1 = var;
-    return p_var1;
+    cin >> p_var1;
+    if (cin.fail())
+    {
+        cout << "Nalezy wpisac liczbe!" << endl;
+        flag = false;
+    }
 }
 
-double Calculator::setVar2()
+void Calculator::setVar2()
 {
-    double var;
     cout << "Podaj druga wartosc: ";
-    cin >> var;
-    cout << endl;
-    p_var2 = var;
-    return p_var2;
+    cin >> p_var2;
+    if (cin.fail())
+    {
+        cout << "Nalezy wpisac liczbe!" << endl;
+        flag = false;
+    }
 }
 
 void Calculator::setOperation()

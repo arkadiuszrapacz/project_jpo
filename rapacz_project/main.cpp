@@ -5,10 +5,9 @@ using namespace std;
 
 int main()
 {
-    while (true)
+    Calculator calc;
+    do
     {
-        Calculator calc;
-
         calc.hello();
         calc.setOperation();
         if (calc.getOperation() == '5')
@@ -30,8 +29,8 @@ int main()
         cout << "Bin: " << calc.toBin() << endl;
         cout << "Oct: " << calc.toOct() << endl;
 
-        getchar(); getchar();
+        system("PAUSE");
         system("cls");
-    }
+    } while (calc.flag);
     return 0;
 }

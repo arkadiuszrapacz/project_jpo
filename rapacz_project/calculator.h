@@ -13,10 +13,11 @@ private:
     string p_oper_result;
 
 public:
-
+    
+    bool flag = true;
     void hello();
-    double setVar1();
-    double setVar2();
+    void setVar1();
+    void setVar2();
     void setOperation();
     void calculate();
     string getResult();
