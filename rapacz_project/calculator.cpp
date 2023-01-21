@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void Calculator::choose_system()
+void Calculator::choose_system()                                                    // funkcja pobieraj¹ca od u¿ytkownika wybór systemu liczbowego
 {
     string choose;
     cout << "Wybierz system, w ktorym chcesz pracowac:" << endl;
@@ -23,12 +23,12 @@ void Calculator::choose_system()
     p_choose_system = choose;
 }
 
-string Calculator::get_system()
+string Calculator::get_system()                                                     // funkcja zwracaj¹ca wybór systemu liczbowego
 {
     return p_choose_system;
 }
 
-void Calculator::hello()
+void Calculator::menu()                                                             // funkcja, która wita u¿ytkownika oraz przedstawia mu mo¿liwe opcje
 {
     cout << endl << "Witam w kalkulatorze dla elektronikow. " << endl;
     cout << "---------------------------------------" << endl;
@@ -44,7 +44,7 @@ void Calculator::hello()
     cout << endl;
 }
 
-void Calculator::setVar1()
+void Calculator::setVar1()                                                          // funkcja pobieraj¹ca od u¿ytkownika wartoœæ pierwszej zmiennej
 {
     cout << "Podaj pierwsza wartosc: ";
     cin >> p_var1;
@@ -55,7 +55,7 @@ void Calculator::setVar1()
     }
 }
 
-void Calculator::setVar2()
+void Calculator::setVar2()                                                          // funkcja pobieraj¹ca od u¿ytkownika wartoœæ drugiej zmiennej
 {
     cout << "Podaj druga wartosc: ";
     cin >> p_var2;
@@ -66,61 +66,91 @@ void Calculator::setVar2()
     }
 }
 
-string Calculator::setVar1_bin()
-{
+string Calculator::setVar1_bin()                                                    // funkcja pobieraj¹ca od u¿ytkownika wartoœæ pierwszej zmiennej w postaci binarnej,
+{                                                                                   // zwracaj¹ca string zawieraj¹cy podan¹ przez u¿ytkownika liczbe binarn¹
     string var;
     cout << "Podaj pierwsza liczbe binarna: ";
     cin >> var;
+    if (cin.fail())
+    {
+        cout << "Nalezy wpisac liczbe!" << endl;
+        flag = false;
+    }
     p_var1_bin = var;
     return p_var1_bin;
 }
 
-string Calculator::setVar2_bin()
-{
+string Calculator::setVar2_bin()                                                    // funkcja pobieraj¹ca od u¿ytkownika wartoœæ pierwszej zmiennej w postaci binarnej,
+{                                                                                   // zwracaj¹ca string zawieraj¹cy podan¹ przez u¿ytkownika liczbe binarn¹
     string var;
     cout << "Podaj liczbe binarna: ";
     cin >> var;
+    if (cin.fail())
+    {
+        cout << "Nalezy wpisac liczbe!" << endl;
+        flag = false;
+    }
     p_var2_bin = var;
     return p_var2_bin;
 }
 
-string Calculator::setVar1_oct()
-{
+string Calculator::setVar1_oct()                                                    // funkcja pobieraj¹ca od u¿ytkownika wartoœæ pierwszej zmiennej w postaci oktalnej,
+{                                                                                   // zwracaj¹ca string zawieraj¹cy podan¹ przez u¿ytkownika liczbe oktaln¹
     string var;
     cout << "Podaj pierwsza liczbe w systemie osemkowym: ";
     cin >> var;
+    if (cin.fail())
+    {
+        cout << "Nalezy wpisac liczbe!" << endl;
+        flag = false;
+    }
     p_var1_oct = var;
     return p_var1_oct;
 }
 
-string Calculator::setVar2_oct()
-{
+string Calculator::setVar2_oct()                                                    // funkcja pobieraj¹ca od u¿ytkownika wartoœæ drugiej zmiennej w postaci oktalnej,
+{                                                                                   // zwracaj¹ca string zawieraj¹cy podan¹ przez u¿ytkownika liczbe oktaln¹
     string var;
     cout << "Podaj pierwsza liczbe w systemie osemkowym: ";
     cin >> var;
+    if (cin.fail())
+    {
+        cout << "Nalezy wpisac liczbe!" << endl;
+        flag = false;
+    }
     p_var2_oct = var;
     return p_var2_oct;
 }
 
-string Calculator::setVar1_hex()
-{
+string Calculator::setVar1_hex()                                                    // funkcja pobieraj¹ca od u¿ytkownika wartoœæ pierwszej zmiennej w postaci heksadecymalnej,
+{                                                                                   // zwracaj¹ca string zawieraj¹cy podan¹ przez u¿ytkownika liczbe heksadecymaln¹
     string var;
     cout << "Podaj pierwsza liczbe w systemie szesnastkowym: ";
     cin >> var;
+    if (cin.fail())
+    {
+        cout << "Nalezy wpisac liczbe!" << endl;
+        flag = false;
+    }
     p_var1_hex = var;
     return p_var1_hex;
 }
 
-string Calculator::setVar2_hex()
-{
+string Calculator::setVar2_hex()                                                    // funkcja pobieraj¹ca od u¿ytkownika wartoœæ drugiej zmiennej w postaci heksadecymalnej,
+{                                                                                   // zwracaj¹ca string zawieraj¹cy podan¹ przez u¿ytkownika liczbe heksadecymaln¹
     string var;
     cout << "Podaj pierwsza liczbe w systemie szesnastkowym: ";
     cin >> var;
+    if (cin.fail())
+    {
+        cout << "Nalezy wpisac liczbe!" << endl;
+        flag = false;
+    }
     p_var2_hex = var;
     return p_var2_hex;
 }
 
-void Calculator::setOperation()
+void Calculator::setOperation()                                                     // funkcja pobieraj¹ca od u¿ytkownika rodzaj operacji matematycznej
 {
     char operation;
     cout << "Wybierz operacje (podaj numer operacji): ";
@@ -129,12 +159,12 @@ void Calculator::setOperation()
     p_operation = operation;
 }
 
-char Calculator::getOperation()
+char Calculator::getOperation()                                                     // funkcja zwracaj¹ca wybór operacji matematycznej
 {
     return p_operation;
 }
 
-void Calculator::calculate()
+void Calculator::calculate()                                                        // funkcja obliczaj¹ca wynik dzia³ania w zale¿noœci od wyboru systemu liczbowego oraz operacji matematycznej
 {
     stringstream resultStream;
     resultStream << fixed << setprecision(2);
@@ -180,13 +210,13 @@ void Calculator::calculate()
     p_oper_result = resultStream.str();
 }
 
-string Calculator::getResult()
+string Calculator::getResult()                                                      // funkcja zwracaj¹ca wynik operacji
 {
     return p_oper_result;
 }
 
-string Calculator::toHex()
-{
+string Calculator::dec2hex()                                                        // funkcja konwertuj¹ca liczbê decymaln¹ na liczbe heksadecymaln¹,
+{                                                                                   // zwracaj¹ca string zawieraj¹cy wartoœæ w postaci heksadecymalnej
     stringstream resultStream;
     long long int resultInt;
 
@@ -199,8 +229,8 @@ string Calculator::toHex()
     return resultStream.str();
 }
 
-string Calculator::toBin()
-{
+string Calculator::dec2bin()                                                        // funkcja konwertuj¹ca liczbê decymaln¹ na liczbe binarn¹,
+{                                                                                   // zwracaj¹ca string zawieraj¹cy wartoœæ w postaci binarnej
     stringstream resultStream;
     long long int resultInt;
 
@@ -213,8 +243,8 @@ string Calculator::toBin()
     return resultStream.str();
 }
 
-string Calculator::toOct()
-{
+string Calculator::dec2oct()                                                        // funkcja konwertuj¹ca liczbê decymaln¹ na liczbe oktaln¹,
+{                                                                                   // zwracaj¹ca string zawieraj¹cy wartoœæ w postaci decymalnej
     stringstream resultStream;
     long long int resultInt;
 
@@ -227,20 +257,20 @@ string Calculator::toOct()
     return resultStream.str();
 }
 
-int Calculator::bin2dec(string bin)
-{
+int Calculator::bin2dec(string bin)                                                 // funkcja konwertuj¹ca liczbê binarn¹ na liczbê decymaln¹,
+{                                                                                   // zwracaj¹ca int zawieraj¹cy wartoœæ w postaci decymalnej
     int dec_bin = strtol(bin.c_str(), NULL, 2);
     return dec_bin;
 }
 
-int Calculator::oct2dec(string octal)
-{
+int Calculator::oct2dec(string octal)                                               // funkcja konwertuj¹ca liczbê oktaln¹ na liczbê decymaln¹,
+{                                                                                   // zwracaj¹ca int zawieraj¹cy wartoœæ w postaci decymalnej
     int dec_octal = strtol(octal.c_str(), NULL, 8);
     return dec_octal;
 }
 
-int Calculator::hex2dec(string hexal)
-{
+int Calculator::hex2dec(string hexal)                                               // funkcja konwertuj¹ca liczbê heksadecymaln¹ na liczbê decymaln¹,
+{                                                                                   // zwracaj¹ca int zawieraj¹cy wartoœæ w postaci decymalnej
     int dec_hexal = strtol(hexal.c_str(), NULL, 16);
     return dec_hexal;
 }

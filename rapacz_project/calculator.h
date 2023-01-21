@@ -7,7 +7,7 @@ class Calculator
 {
 private:
 
-    double p_var1;
+    double p_var1;                      
     double p_var2;
     string p_var1_bin;
     string p_var2_bin;
@@ -23,7 +23,7 @@ public:
     
     bool flag = true;
     void choose_system();
-    void hello();
+    void menu();
     void setVar1();
     void setVar2();
     string setVar1_bin();
@@ -35,9 +35,9 @@ public:
     void setOperation();
     void calculate();
     string getResult();
-    string toHex();
-    string toBin();
-    string toOct();
+    string dec2hex();
+    string dec2bin();
+    string dec2oct();
     int bin2dec(string bin);
     int oct2dec(string octal);
     int hex2dec(string hexal);

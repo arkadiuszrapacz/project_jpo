@@ -11,14 +11,14 @@ int main()
         calc.choose_system();
         if (calc.get_system() == "oct" || calc.get_system() == "hex" || calc.get_system() == "bin" || calc.get_system() == "dec")
         {
-            calc.hello();
+            calc.menu();
             calc.setOperation();
 
             if (calc.getOperation() == '5')
             {
                 break;
             }
-            else
+            else if (calc.getOperation() == '1' || calc.getOperation() == '2' || calc.getOperation() == '3' || calc.getOperation() == '4' || calc.getOperation() == '5')
             {
                 if (calc.get_system() == "oct")
                 {
@@ -26,8 +26,9 @@ int main()
                     calc.setVar2_oct();
                     calc.calculate();
                     cout << endl << "Dec: " << calc.getResult() << endl;
-                    cout << endl << "Hex: " << calc.toHex() << endl;
-                    cout << endl << "Bin: " << calc.toBin() << endl;
+                    cout << endl << "Hex: " << calc.dec2hex() << endl;
+                    cout << endl << "Bin: " << calc.dec2bin() << endl;
+                    cout << endl << "Oct: " << calc.dec2oct() << endl;
                 }
                 else if (calc.get_system() == "bin")
                 {
@@ -35,8 +36,9 @@ int main()
                     calc.setVar2_bin();
                     calc.calculate();
                     cout << endl << "Dec: " << calc.getResult() << endl;
-                    cout << endl << "Hex: " << calc.toHex() << endl;
-                    cout << endl << "Oct: " << calc.toOct() << endl;
+                    cout << endl << "Hex: " << calc.dec2hex() << endl;
+                    cout << endl << "Bin: " << calc.dec2bin() << endl;
+                    cout << endl << "Oct: " << calc.dec2oct() << endl;
                 }
                 else if (calc.get_system() == "hex")
                 {
@@ -44,8 +46,9 @@ int main()
                     calc.setVar2_hex();
                     calc.calculate();
                     cout << endl << "Dec: " << calc.getResult() << endl;
-                    cout << endl << "Oct: " << calc.toOct() << endl;
-                    cout << endl << "Bin: " << calc.toBin() << endl;
+                    cout << endl << "Hex: " << calc.dec2hex() << endl;
+                    cout << endl << "Oct: " << calc.dec2oct() << endl;
+                    cout << endl << "Bin: " << calc.dec2bin() << endl;
                 }
                 else if (calc.get_system() == "dec")
                 {
@@ -53,10 +56,14 @@ int main()
                     calc.setVar2();
                     calc.calculate();
                     cout << endl << "Dec: " << calc.getResult() << endl;
-                    cout << endl << "Hex: " << calc.toHex() << endl;
-                    cout << endl << "Bin: " << calc.toBin() << endl;
-                    cout << endl << "Oct: " << calc.toOct() << endl;
+                    cout << endl << "Hex: " << calc.dec2hex() << endl;
+                    cout << endl << "Bin: " << calc.dec2bin() << endl;
+                    cout << endl << "Oct: " << calc.dec2oct() << endl;
                 }
+            }
+            else
+            {
+                cout << "Wybierz sposrob podanych operacji!" << endl;
             }
 
         }
