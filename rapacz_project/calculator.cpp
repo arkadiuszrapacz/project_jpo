@@ -40,8 +40,7 @@ void Calculator::hello()
     cout << "2. Odejmowanie" << endl;
     cout << "3. Mnozenie" << endl;
     cout << "4. Dzielenie" << endl;
-    cout << "5. Konwersja liczb dziesietnych" << endl;
-    cout << "6. Wyjdz" << endl;
+    cout << "5. Wyjdz" << endl;
     cout << endl;
 }
 
@@ -173,9 +172,6 @@ void Calculator::calculate()
             resultStream << p_var1 / p_var2;
         break;
     case '5':
-        resultStream << p_var1;
-        break;
-    case '6':
         exit(0);
     default:
         cout << "Invalid operation" << endl;
